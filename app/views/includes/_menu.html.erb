@@ -1,0 +1,92 @@
+<nav class="navbar nav-fixed-top is-info">
+  <div class="navbar-brand">
+    <a class="navbar-item">
+      <strong>I ♥ Siente Veintisiete</strong>
+    </a>
+    <div class="navbar-burger burger" data-target="navMenu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <div class="navbar-menu">
+    <div class="navbar-start">
+      <a href="/" class="navbar-item">
+        <i class="fa fa-home fa-2"></i>&nbsp;
+        Inicio
+      </a>
+
+      <%= link_to '<i class="fa fa-bar-chart fa-2"></i>&nbsp; Administrador'.html_safe, { :controller => :panel_admin, :action => :panelAdmin }, { class: "navbar-item"} %>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          <i class="fa fa-cutlery" aria-hidden="true"></i>&nbsp;
+          Negocios
+        </a>
+        <div class="navbar-dropdown">
+          <%= link_to '<i class="fa fa-list" aria-hidden="true"></i>&nbsp; Ver todos'.html_safe, { :controller => :businesses, :action => :index }, { class: "navbar-item"} %>
+          <%= link_to '<i class="fa fa-plus" aria-hidden="true"></i>&nbsp; Nuevo'.html_safe, { :controller => :businesses, :action => :new }, { class: "navbar-item"} %>
+          <a href="#" class="navbar-item">
+            <i class="fa fa-search" aria-hidden="true"></i>&nbsp;
+            Buscar
+          </a>
+        </div>
+
+      </div>
+    </div>
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="field is-grouped">
+          <p class="control">
+            <a class="button is-info">
+              <span class="icon">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+              </span>
+              <span>Tweet</span>
+            </a>
+          </p>
+          <p class="control">
+            <a class="button is-primary">
+              <span class="icon">
+                <i class="fa fa-download" aria-hidden="true"></i>
+              </span>
+              <span>Download</span>
+            </a>
+          </p>
+        </div>
+      </div>
+      <div class="navbar-item has-dropdown is-hoverable" >
+        <a class="navbar-link">
+          Fernando
+        </a>
+        <div class="navbar-dropdown">
+          <a href="/profile/tony" class="navbar-item">
+            <i class="fa fa-id-card fa-2"></i>&nbsp;
+            Perfil
+          </a>
+          <a href="/accounts/password/change/" class="navbar-item">
+            <i class="fa fa-key fa-2"></i>&nbsp;
+            Contraseña
+          </a>
+          <a href="/logout/" class="navbar-item">
+            <i class="fa fa-sign-out fa-2"></i>&nbsp;
+            Cerrar sesión
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</nav>
+<style>
+.nav-fixed-top{
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+}
+.container{
+  padding-top: 60px;
+}
+</style>

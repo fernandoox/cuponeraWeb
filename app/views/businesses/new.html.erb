@@ -1,0 +1,109 @@
+
+<section class="hero is-light is-small" style="margin-bottom: -30px">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        <i class="fa fa-cutlery" aria-hidden="true"></i>&nbsp; Negocios
+      </h1>
+      <h2 class="subtitle">
+        Registrar nuevo negocio
+      </h2>
+    </div>
+  </div>
+</section>
+<div class="container">
+  <%= form_for @business do |f| %>
+  <%@business.errors.full_messages.each do |message|%>
+  <div class="notification is-warning" style="padding: 7px !important">
+    * <%=message%>
+  </div>
+  <%end%>
+  <div class="tile is-ancestor">
+
+    <div class="tile is-6 is-vertical is-parent">
+
+      <div class="tile is-child box">
+        <div class="field">
+          <label class="label">Nombre</label>
+          <div class="control">
+            <%= f.text_field :name, placeholder:"Introduce el nombre del negocio", class:"input" %>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Slogan</label>
+          <div class="control">
+            <%= f.text_field :slogan, placeholder:"Introduce el slogan del negocio", class:"input" %>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Descripción</label>
+          <div class="control">
+            <%= f.text_area :description, placeholder:"Introduce la descripción del negocio", class:"textarea" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="tile is-child box">
+        <p class="title">Carga de imágenes</p>
+      </div>
+    </div>
+
+    <div class="tile is-parent">
+      <div class="tile is-child box">
+        <p class="title">Posición del negocio con Google Maps</p>
+        <div id="map" style="with:300px;height:550px;"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="field">
+      <div class="control">
+        <%=f.submit 'GUARDAR'.html_safe, class:"button is-primary is-large"%>
+      </div>
+    </div>
+  </div>
+  <%end%>
+</div>
+
+<script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
+async defer></script>
+</script>
+<script>
+var map;
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 19.414484,lng:-98.1424927},
+    zoom: 16
+  });
+
+  var marker = new google.maps.Marker({
+    position: {lat: 19.414484,lng:-98.1424927},
+    map: map,
+    draggable:true,
+    animation: google.maps.Animation.DROP,
+    title: 'Hello World!'
+  });
+
+  google.maps.event.addListener(marker, 'dragend', function() {
+    geocodePosition(marker.getPosition());
+  });
+
+  function geocodePosition(pos){
+    geocoder = new google.maps.Geocoder();
+    geocoder.geocode({
+      latLng: pos
+    },
+    function(results, status){
+      if (status == google.maps.GeocoderStatus.OK){
+        alert(results[0].formatted_address);
+        //alert(JSON.stringify(results))
+      }
+      else{
+        alert(status)
+      }
+    }
+  );
+}
+}
+</script>

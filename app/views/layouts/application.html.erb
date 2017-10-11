@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cuponera</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= render "includes/menu" %>
+  <%= yield %>
+  <footer class="footer hero is-dark" style="margin-top: 15px">
+    <div class="container">
+      <div class="content has-text-centered">
+        <p>
+          <strong>Name App</strong> by <a href="#">Siete Veintisiete</a>.
+        </p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
