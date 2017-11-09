@@ -1,0 +1,6 @@
+Asociaciones 1 a muchos:
+rails generate migration add_business_type_id_to_businesses business_type:references
+belongs_to :business_type
+
+
+Paperclip necesita imagemagick (procesador de imagenes)

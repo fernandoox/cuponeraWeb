@@ -5,6 +5,13 @@ es:
         name: "Nombre"
         sloagn: "Slogan"
         description: "Descripción"
+        business_type_id: "Tipo de negocio"
+        tags: "Etiquetas"
+        tag_list: "Etiquetas"
+        cover: "Portada"
+      address:
+        latitude: "Latitud"
+        longitude: "Longitud"
     errors:
       messages:
         record_invalid: "La validación falló: %{errors}"

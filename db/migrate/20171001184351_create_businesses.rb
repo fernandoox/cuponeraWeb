@@ -4,7 +4,6 @@ class CreateBusinesses < ActiveRecord::Migration
       t.string :name
       t.string :slogan
       t.text :description
-
       t.timestamps null: false
     end
   end

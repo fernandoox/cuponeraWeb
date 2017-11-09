@@ -11,38 +11,88 @@
   </div>
 </section>
 <div class="container is-fluid">
+  <table class="table is-fullwidth">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Propietario</th>
+        <th>Dirección</th>
+        <th>Categoría</th>
+        <th>Estatus</th>
+        <th>Eliminar</th>
+        <th>Detalle</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Arrecifes</td>
+        <td>Daniel Juarez</td>
+        <td>Avenida Moctezuma 205, Centro, Apizaco, Tlaxcala, 90300</td>
+        <td>Restaurante</td>
+        <td>Abierto</td>
+        <td>X</td>
+        <td>C</td>
+      </tr>
+      <tr>
+        <td>Arrecifes</td>
+        <td>Daniel Juarez</td>
+        <td>Avenida Moctezuma 205, Centro, Apizaco, Tlaxcala, 90300</td>
+        <td>Restaurante</td>
+        <td>Abierto</td>
+        <td>X</td>
+        <td>C</td>
+      </tr>
+    </tbody>
+  </table>
   <% @businesses.each do |business| %>
+
   <div class="box">
     <article class="media">
       <div class="media-left">
-        <figure class="image is-128x128">
-          <img src="http://lorempixel.com/150/150/food/" alt="Image">
+        <figure class="image">
+          <%=image_tag business.cover.url(:thumb)%>
         </figure>
       </div>
       <div class="media-content">
         <div class="content">
+          <div class="block">
+            <span class="tag is-info is-medium">
+              <%= business.business_type.name %>
+            </span>
+          </div>
+
           <p>
             <strong><%= business.name %></strong> <small><%= business.slogan %></small>
             <br>
             <%= business.description %>
+            <div class="block">
+              <%business.tags.each do |tag|%>
+                <span class="tag is-rounded"><%= tag.name%></span>
+              <%end%>
+            </div>
           </p>
         </div>
-        <nav class="level is-mobile">
-          <div class="level-left">
-            <a class="level-item">
-              <span class="icon is-large"><i class="fa fa-reply"></i></span>
-            </a>
-            <a class="level-item">
-              <span class="icon is-large"><i class="fa fa-retweet"></i></span>
-            </a>
-            <a class="level-item">
-              <span class="icon is-large"><i class="fa fa-heart"></i></span>
-            </a>
-          </div>
-        </nav>
+        <div class="block">
+          <span class="icon is-medium has-text-info" style="vertical-align: middle;">
+            <span class="fa-stack">
+              <i class="fa fa-map-marker fa-stack-2x"></i>
+            </span>
+          </span>
+          <span class="has-text-weight-semibold">
+            <%=business.address.street + " " +
+            business.address.ext_number +  ", "  +
+            business.address.colony +  ", "  +
+            business.address.municipality +  ", "  +
+            business.address.state +  ", "  +
+            business.address.postal_code.to_s%>
+          </span>
+        </div>
       </div>
       <div class="media-right">
-        <%= link_to "Eliminar.", business, method: :delete, data: { confirm: '¿Está seguro de eliminar?', text: 'Eliminará un negocio registrado'} %>
+        <%= link_to "Eliminar", business, method: :delete, data: { confirm: '¿Está seguro de eliminar?', text: 'Eliminará un negocio registrado'} %>
+      </div>
+      <div class="media-right">
+        <%= link_to "Detalles", business, method: :get %>
       </div>
     </article>
   </div>
