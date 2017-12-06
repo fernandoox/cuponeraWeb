@@ -10,7 +10,7 @@ class BusinessesController < ApplicationController
   def index
     #Variables de clase inciian con @ (vista y controller)
     #@businesses = Business.all
-    @businesses = Business.paginate(:page => params[:page], :per_page => 1)
+    @businesses = Business.paginate(:page => params[:page], :per_page => 10)
   end
 
   #GET /business/:id
