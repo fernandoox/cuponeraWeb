@@ -21,15 +21,19 @@
       <div class="media-content">
         <div class="content">
           <div class="block">
-            <span class="tag is-info is-medium">
-                <%= @business.business_type.name %>
+            <span class="tag is-info is-large">
+                <%= @business.status.name.capitalize %>
             </span>
           </div>
           <p>
             <strong><%= @business.name %></strong> <small><%= @business.slogan %></small>
             <br>
             <%= @business.description %>
+
             <div class="block">
+              <span class="tag is-primary is-rounded is-medium">
+                  <%= @business.business_type.name %>
+              </span>
               <%@business.tags.each do |tag|%>
                 <span class="tag is-rounded"><%= tag.name%></span>
               <%end%>

@@ -1,6 +1,7 @@
 class Business < ActiveRecord::Base
 
   belongs_to :business_type
+  belongs_to :status
 
   acts_as_taggable_on :tags
   has_attached_file :cover, styles: {medium:"400x400", thumb:"200x200"}, default_url: "/images/missing.jpeg"
@@ -11,6 +12,7 @@ class Business < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true
   validates :slogan, presence: true
   validates :business_type_id, presence: true
+  validates :status_id, presence: true
   validates :description, presence: true, length:{minimum: 20}
   validates :tag_list, presence: true
 

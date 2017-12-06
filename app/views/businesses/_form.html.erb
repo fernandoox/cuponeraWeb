@@ -29,10 +29,18 @@
           </div>
         </div>
         <div class="field">
+          <label class="label">Estado:</label>
+          <div class="control">
+            <div class="select is-primary">
+              <%= collection_select(:business, :status_id, @business_status_actives, :id, :name, :prompt => 'Seleccione un estado de negocio') %>
+            </div>
+          </div>
+        </div>
+        <div class="field">
           <label class="label">Tipo de negocio al que pertenece:</label>
           <div class="control">
             <div class="select is-primary">
-              <%= collection_select(:business, :business_type_id, BusinessType.all, :id, :name, :prompt => 'Seleccione un tipo de negocio') %>
+              <%= collection_select(:business, :business_type_id, @business_types_actives, :id, :name, :prompt => 'Seleccione un tipo de negocio') %>
             </div>
           </div>
         </div>
@@ -75,7 +83,7 @@
     <div class="tile is-parent">
       <div class="tile is-child box">
         <p class="title">Ubicación</p>
-        <div id="map" style="width: 100%; height: 500px; margin-bottom: 15px"></div>
+        <div id="map" style="width: 100%; height: 500px; margin-bottom: 15px;"></div>
 
         <div class="columns">
         <%= f.fields_for :address do |a| %>
@@ -185,10 +193,10 @@
 <script>
 handler = Gmaps.build('Google');
 handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-  let latMarkerApizaco;
-  let lngMarkerApizaco;
-  let txtInfoMarker;
-  let zoom;
+  var latMarkerApizaco;
+  var lngMarkerApizaco;
+  var txtInfoMarker;
+  var zoom;
   if($('#latInput').val() == "" && $('#lngInput').val() == ""){
     latMarkerApizaco = 19.4147319;
     lngMarkerApizaco = -98.1404462;
@@ -236,22 +244,22 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
         for (var i = 0; i < place.address_components.length; i++) {
           for (var j = 0; j < place.address_components[i].types.length; j++) {
             console.log("Tipos: "+place.address_components[i].types[j]+", Valor: "+ place.address_components[i].long_name)
-            if (place.address_components[i].types[j] == "route") {
+            if (place.address_components[i].types[j] === "route") {
               $('#calleInput').val(place.address_components[i].long_name);
             }
-            if (place.address_components[i].types[j] == "street_number") {
+            if (place.address_components[i].types[j] === "street_number") {
               $('#numExtInput').val(place.address_components[i].long_name);
             }
-            if (place.address_components[i].types[j] == "sublocality") {
+            if (place.address_components[i].types[j] === "sublocality") {
               $('#coloniaInput').val(place.address_components[i].long_name);
             }
-            if (place.address_components[i].types[j] == "administrative_area_level_2") {
+            if (place.address_components[i].types[j] === "administrative_area_level_2") {
               $('#municipioInput').val(place.address_components[i].long_name);
             }
-            if (place.address_components[i].types[j] == "administrative_area_level_1") {
+            if (place.address_components[i].types[j] === "administrative_area_level_1") {
               $('#estadoInput').val(place.address_components[i].long_name);
             }
-            if (place.address_components[i].types[j] == "postal_code") {
+            if (place.address_components[i].types[j] === "postal_code") {
               $('#cpInput').val(place.address_components[i].long_name);
             }
           }

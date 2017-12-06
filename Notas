@@ -2,5 +2,27 @@ Asociaciones 1 a muchos:
 rails generate migration add_business_type_id_to_businesses business_type:references
 belongs_to :business_type
 
+********************************************************************************
 
 Paperclip necesita imagemagick (procesador de imagenes)
+
+********************************************************************************
+Para status:
+rails generate model StatusType name:string active:boolean
+rails generate model Status name:string active:boolean
+rails generate migration add_status_type_id_to_statuses status_type:references
+rails generate migration add_status_id_to_businesses status:references
+
+StatusType.create(name: "MANTENIMIENTO", active: true)
+Status.create(name: "CERRADO", active: true, status_type_id: 3)
+Status.where(active: true, status_type_id:3).order(:name)
+StatusType:
+  has_many :statuses
+Status:
+  belongs_to :status_types
+Business
+  belongs_to :status
+********************************************************************************
+
+Para agregar un campo a una tabla:
+rails generate migration add_active_to_business_type active:boolean

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171107051032) do
+ActiveRecord::Schema.define(version: 20171113011131) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20171107051032) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean  "active"
   end
 
   create_table "businesses", force: :cascade do |t|
@@ -48,10 +49,29 @@ ActiveRecord::Schema.define(version: 20171107051032) do
     t.integer  "cover_file_size"
     t.datetime "cover_updated_at"
     t.integer  "address_id"
+    t.integer  "status_id"
   end
 
   add_index "businesses", ["address_id"], name: "index_businesses_on_address_id", using: :btree
   add_index "businesses", ["business_type_id"], name: "index_businesses_on_business_type_id", using: :btree
+  add_index "businesses", ["status_id"], name: "index_businesses_on_status_id", using: :btree
+
+  create_table "status_types", force: :cascade do |t|
+    t.string   "name"
+    t.boolean  "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "statuses", force: :cascade do |t|
+    t.string   "name"
+    t.boolean  "active"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "status_type_id"
+  end
+
+  add_index "statuses", ["status_type_id"], name: "index_statuses_on_status_type_id", using: :btree
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"
@@ -82,4 +102,6 @@ ActiveRecord::Schema.define(version: 20171107051032) do
 
   add_foreign_key "businesses", "addresses"
   add_foreign_key "businesses", "business_types"
+  add_foreign_key "businesses", "statuses"
+  add_foreign_key "statuses", "status_types"
 end

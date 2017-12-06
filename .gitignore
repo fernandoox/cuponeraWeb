@@ -1,4 +1,8 @@
 log
 tmp
+test
 public/system
 *.log
+Banamex
+*.byebug_history
+.idea

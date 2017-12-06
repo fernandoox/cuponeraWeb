@@ -1,9 +1,18 @@
+#similar a importar
+require 'constants/status_types_constants'
 class BusinessesController < ApplicationController
+  #llamar a un metodo antes de las acciones que se declaran (only o except)
+  before_action :set_catalogs, only: [:new, :create, :edit]
+  #similar a heredar los metodos del modulo CatalogsHelper (helpers) en BusinessesController
+  include CatalogsHelper
+  include StatusTypesConstants
   #GET /business
   def index
     #Variables de clase inciian con @ (vista y controller)
-    @businesses = Business.all
+    #@businesses = Business.all
+    @businesses = Business.paginate(:page => params[:page], :per_page => 1)
   end
+
   #GET /business/:id
   def show
     @business = Business.find(params[:id])
@@ -53,7 +62,13 @@ class BusinessesController < ApplicationController
   def business_params
     #parametros permitidos desde la vista, los sensibles no se permiten
     #permit id de direccion: If you don't permit the id, it will be null in the action, and rails thinks it's a new record and save it.
-    params.require(:business).permit(:name,:slogan,:description, :business_type_id, :tag_list, :cover, address_attributes:[:id,:street,:ext_number,:int_number,:postal_code,:latitude,:longitude,:colony,:municipality,:state])
+    params.require(:business).permit(:name, :slogan, :description, :business_type_id, :status_id, :tag_list, :cover, address_attributes: [:id, :street, :ext_number, :int_number, :postal_code, :latitude, :longitude, :colony, :municipality, :state])
+  end
+
+  private
+  def set_catalogs
+    @business_types_actives = getBusinessTypesActives()
+    @business_status_actives = getStatusActivesByType(StatusTypesConstants::NEGOCIO)
   end
 
 end

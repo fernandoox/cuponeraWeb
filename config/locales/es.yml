@@ -9,6 +9,7 @@ es:
         tags: "Etiquetas"
         tag_list: "Etiquetas"
         cover: "Portada"
+        status_id: "Estado"
       address:
         latitude: "Latitud"
         longitude: "Longitud"

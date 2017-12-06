@@ -34,6 +34,10 @@ gem 'underscore-rails'
 gem 'gmaps4rails'
 #for upload files
 gem "paperclip", "~> 5.0.0"
+#gem for pagination
+gem 'will_paginate'
+#gem for pagination style bulma
+gem 'will_paginate-bulma'
 
 
 # Use ActiveModel has_secure_password
