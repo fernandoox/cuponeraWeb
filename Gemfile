@@ -18,6 +18,7 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'puma'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.20.0'
 #css framework flexbox
