@@ -25,7 +25,7 @@ gem 'puma'
 # PAra servir archivos estaticos
 gem "rails_12factor", "0.0.2"
 #css framework flexbox
-gem "bulma-rails", "~> 0.5.3"
+gem "bulma-rails", "~> 0.6.1"
 #css icons font awesome
 gem "font-awesome-rails"
 #alerts and confirms
