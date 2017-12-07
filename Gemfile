@@ -21,6 +21,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'puma'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.20.0'
+# PAra servir archivos estaticos
+gem "rails_12factor", "0.0.2"
 #css framework flexbox
 gem "bulma-rails", "~> 0.5.3"
 #css icons font awesome

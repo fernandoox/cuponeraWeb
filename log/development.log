@@ -38160,3 +38160,200 @@ Completed 200 OK in 476ms (Views: 471.9ms | ActiveRecord: 0.0ms)
 
 
 Started GET "/assets/bulma" for ::1 at 2017-12-05 23:34:46 -0600
+
+
+Started GET "/businesses" for ::1 at 2017-12-06 00:36:53 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (7.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by BusinessesController#index as HTML
+  [1m[35mBusiness Load (17.3ms)[0m  SELECT  "businesses".* FROM "businesses" LIMIT 10 OFFSET 0
+  [1m[36mAddress Load (4.7ms)[0m  [1mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35mBusinessType Load (0.7ms)[0m  SELECT  "business_types".* FROM "business_types" WHERE "business_types"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mStatus Load (1.0ms)[0m  [1mSELECT  "statuses".* FROM "statuses" WHERE "statuses"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mAddress Load (0.7ms)[0m  SELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = $1 LIMIT 1  [["id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "business_types".* FROM "business_types" WHERE "business_types"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mStatus Load (0.7ms)[0m  SELECT  "statuses".* FROM "statuses" WHERE "statuses"."id" = $1 LIMIT 1  [["id", 8]]
+  [1m[36mAddress Load (0.6ms)[0m  [1mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "business_types".* FROM "business_types" WHERE "business_types"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mStatus Load (0.5ms)[0m  [1mSELECT  "statuses".* FROM "statuses" WHERE "statuses"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  Rendered businesses/index.html.erb within layouts/application (172.9ms)
+  Rendered includes/_menu.html.erb (2.8ms)
+Completed 200 OK in 1479ms (Views: 1316.6ms | ActiveRecord: 55.8ms)
+
+
+Started GET "/assets/bulma" for ::1 at 2017-12-06 00:36:56 -0600
+
+
+Started GET "/" for ::1 at 2017-12-06 00:37:02 -0600
+Processing by PanelAdminController#panelAdmin as HTML
+  Rendered panel_admin/panelAdmin.html.erb within layouts/application (0.8ms)
+  Rendered includes/_menu.html.erb (1.2ms)
+Completed 200 OK in 146ms (Views: 144.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/businesses/new" for ::1 at 2017-12-06 00:37:04 -0600
+Processing by BusinessesController#new as HTML
+  [1m[35mStatus Load (3.5ms)[0m  SELECT "statuses".* FROM "statuses" WHERE (active = true and status_type_id = 3)
+  [1m[36mBusinessType Load (4.9ms)[0m  [1mSELECT "business_types".* FROM "business_types" WHERE "business_types"."active" = 't'  ORDER BY "business_types"."name" ASC[0m
+  Rendered businesses/_form.html.erb (114.5ms)
+  Rendered businesses/new.html.erb within layouts/application (118.6ms)
+  Rendered includes/_menu.html.erb (1.0ms)
+Completed 200 OK in 272ms (Views: 237.2ms | ActiveRecord: 13.5ms)
+
+
+Started GET "/businesses" for ::1 at 2017-12-06 00:37:06 -0600
+Processing by BusinessesController#index as HTML
+  [1m[35mBusiness Load (9.1ms)[0m  SELECT  "businesses".* FROM "businesses" LIMIT 10 OFFSET 0
+  [1m[36mAddress Load (9.9ms)[0m  [1mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35mBusinessType Load (6.3ms)[0m  SELECT  "business_types".* FROM "business_types" WHERE "business_types"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mStatus Load (9.0ms)[0m  [1mSELECT  "statuses".* FROM "statuses" WHERE "statuses"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mAddress Load (2.5ms)[0m  SELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = $1 LIMIT 1  [["id", 8]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "business_types".* FROM "business_types" WHERE "business_types"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mStatus Load (2.1ms)[0m  SELECT  "statuses".* FROM "statuses" WHERE "statuses"."id" = $1 LIMIT 1  [["id", 8]]
+  [1m[36mAddress Load (3.5ms)[0m  [1mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "business_types".* FROM "business_types" WHERE "business_types"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mStatus Load (0.8ms)[0m  [1mSELECT  "statuses".* FROM "statuses" WHERE "statuses"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  Rendered businesses/index.html.erb within layouts/application (63.7ms)
+  Rendered includes/_menu.html.erb (0.6ms)
+Completed 200 OK in 202ms (Views: 157.1ms | ActiveRecord: 43.4ms)
+
+
+Started DELETE "/businesses/27" for ::1 at 2017-12-06 00:37:16 -0600
+Processing by BusinessesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"mwt50W2j7Yx2yMebxL+GERt85F3FYDCBhCFj2iFcT8fcX/GvKC/UA8ZCqG8dWazYCY4fjR0fr3m01VhZ2AU0Wg==", "id"=>"27"}
+  [1m[35mBusiness Load (0.6ms)[0m  SELECT  "businesses".* FROM "businesses" WHERE "businesses"."id" = $1 LIMIT 1  [["id", 27]]
+  [1m[36m (2.8ms)[0m  [1mBEGIN[0m
+  [1m[35mActsAsTaggableOn::Tagging Load (2.8ms)[0m  SELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2  [["taggable_id", 27], ["taggable_type", "Business"]]
+  [1m[36mSQL (5.8ms)[0m  [1mDELETE FROM "taggings" WHERE "taggings"."id" = $1[0m  [["id", 47]]
+  [1m[35mActsAsTaggableOn::Tag Load (1.2ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT 1  [["id", 46]]
+  [1m[36mSQL (6.9ms)[0m  [1mUPDATE "tags" SET "taggings_count" = COALESCE("taggings_count", 0) - 1 WHERE "tags"."id" = $1[0m  [["id", 46]]
+  [1m[35mActsAsTaggableOn::Tag Load (0.6ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT 1  [["id", 46]]
+  [1m[36mActsAsTaggableOn::Tagging Load (2.6ms)[0m  [1mSELECT "taggings".* FROM "taggings" WHERE "taggings"."tag_id" = $1[0m  [["tag_id", 46]]
+  [1m[35mSQL (1.2ms)[0m  DELETE FROM "tags" WHERE "tags"."id" = $1  [["id", 46]]
+  [1m[36mSQL (2.7ms)[0m  [1mDELETE FROM "taggings" WHERE "taggings"."id" = $1[0m  [["id", 46]]
+  [1m[35mActsAsTaggableOn::Tag Load (12.1ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT 1  [["id", 45]]
+  [1m[36mSQL (1.5ms)[0m  [1mUPDATE "tags" SET "taggings_count" = COALESCE("taggings_count", 0) - 1 WHERE "tags"."id" = $1[0m  [["id", 45]]
+  [1m[35mActsAsTaggableOn::Tag Load (0.8ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT 1  [["id", 45]]
+  [1m[36mActsAsTaggableOn::Tagging Load (0.9ms)[0m  [1mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2 AND "taggings"."context" = $3[0m  [["taggable_id", 27], ["taggable_type", "Business"], ["context", "tags"]]
+  [1m[35mSQL (0.6ms)[0m  DELETE FROM "businesses" WHERE "businesses"."id" = $1  [["id", 27]]
+  [1m[36mAddress Load (0.4ms)[0m  [1mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = $1 LIMIT 1[0m  [["id", 8]]
+  [1m[35mSQL (13.2ms)[0m  DELETE FROM "addresses" WHERE "addresses"."id" = $1  [["id", 8]]
+  [1m[36m (2.4ms)[0m  [1mCOMMIT[0m
+[paperclip] deleting /Users/lfernandofz/Dev/Rails/cuponeraWeb/public/system/businesses/covers/000/000/027/original/asada.jpeg
+[paperclip] deleting /Users/lfernandofz/Dev/Rails/cuponeraWeb/public/system/businesses/covers/000/000/027/medium/asada.jpeg
+[paperclip] deleting /Users/lfernandofz/Dev/Rails/cuponeraWeb/public/system/businesses/covers/000/000/027/thumb/asada.jpeg
+Redirected to http://localhost:3000/businesses
+Completed 302 Found in 180ms (ActiveRecord: 62.9ms)
+
+
+Started GET "/businesses" for ::1 at 2017-12-06 00:37:16 -0600
+Processing by BusinessesController#index as HTML
+  [1m[35mBusiness Load (0.9ms)[0m  SELECT  "businesses".* FROM "businesses" LIMIT 10 OFFSET 0
+  [1m[36mAddress Load (0.6ms)[0m  [1mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35mBusinessType Load (10.9ms)[0m  SELECT  "business_types".* FROM "business_types" WHERE "business_types"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mStatus Load (0.5ms)[0m  [1mSELECT  "statuses".* FROM "statuses" WHERE "statuses"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mAddress Load (2.1ms)[0m  SELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "business_types".* FROM "business_types" WHERE "business_types"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mStatus Load (0.5ms)[0m  SELECT  "statuses".* FROM "statuses" WHERE "statuses"."id" = $1 LIMIT 1  [["id", 9]]
+  Rendered businesses/index.html.erb within layouts/application (28.9ms)
+  Rendered includes/_menu.html.erb (0.7ms)
+Completed 200 OK in 157ms (Views: 138.9ms | ActiveRecord: 15.3ms)
+
+
+Started GET "/assets/bulma" for ::1 at 2017-12-06 00:37:16 -0600
+
+
+Started GET "/businesses" for ::1 at 2017-12-06 00:37:20 -0600
+Processing by BusinessesController#index as HTML
+  [1m[36mBusiness Load (0.7ms)[0m  [1mSELECT  "businesses".* FROM "businesses" LIMIT 10 OFFSET 0[0m
+  [1m[35mAddress Load (0.4ms)[0m  SELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = $1 LIMIT 1  [["id", 9]]
+  [1m[36mBusinessType Load (0.5ms)[0m  [1mSELECT  "business_types".* FROM "business_types" WHERE "business_types"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mStatus Load (0.4ms)[0m  SELECT  "statuses".* FROM "statuses" WHERE "statuses"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36mAddress Load (0.5ms)[0m  [1mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "business_types".* FROM "business_types" WHERE "business_types"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mStatus Load (0.5ms)[0m  [1mSELECT  "statuses".* FROM "statuses" WHERE "statuses"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  Rendered businesses/index.html.erb within layouts/application (12.8ms)
+  Rendered includes/_menu.html.erb (0.9ms)
+Completed 200 OK in 141ms (Views: 136.6ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/bulma" for ::1 at 2017-12-06 00:37:20 -0600
+
+
+Started GET "/panel_admin/panelAdmin" for ::1 at 2017-12-06 00:44:48 -0600
+Processing by PanelAdminController#panelAdmin as HTML
+  Rendered panel_admin/panelAdmin.html.erb within layouts/application (1.0ms)
+  Rendered includes/_menu.html.erb (3.0ms)
+Completed 200 OK in 978ms (Views: 967.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/panel_admin/panelAdmin" for ::1 at 2017-12-06 00:44:51 -0600
+Processing by PanelAdminController#panelAdmin as HTML
+  Rendered panel_admin/panelAdmin.html.erb within layouts/application (0.1ms)
+  Rendered includes/_menu.html.erb (1.9ms)
+Completed 200 OK in 147ms (Views: 145.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/businesses/new" for ::1 at 2017-12-06 00:44:52 -0600
+Processing by BusinessesController#new as HTML
+  [1m[35mStatus Load (2.6ms)[0m  SELECT "statuses".* FROM "statuses" WHERE (active = true and status_type_id = 3)
+  [1m[36mBusinessType Load (1.3ms)[0m  [1mSELECT "business_types".* FROM "business_types" WHERE "business_types"."active" = 't'  ORDER BY "business_types"."name" ASC[0m
+  Rendered businesses/_form.html.erb (19.9ms)
+  Rendered businesses/new.html.erb within layouts/application (23.2ms)
+  Rendered includes/_menu.html.erb (0.5ms)
+Completed 200 OK in 151ms (Views: 143.1ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/businesses" for ::1 at 2017-12-06 00:44:55 -0600
+Processing by BusinessesController#index as HTML
+  [1m[35mBusiness Load (1.7ms)[0m  SELECT  "businesses".* FROM "businesses" LIMIT 10 OFFSET 0
+  [1m[36mAddress Load (2.8ms)[0m  [1mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35mBusinessType Load (0.9ms)[0m  SELECT  "business_types".* FROM "business_types" WHERE "business_types"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mStatus Load (0.7ms)[0m  [1mSELECT  "statuses".* FROM "statuses" WHERE "statuses"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mAddress Load (0.4ms)[0m  SELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "business_types".* FROM "business_types" WHERE "business_types"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mStatus Load (0.4ms)[0m  SELECT  "statuses".* FROM "statuses" WHERE "statuses"."id" = $1 LIMIT 1  [["id", 9]]
+  Rendered businesses/index.html.erb within layouts/application (73.2ms)
+  Rendered includes/_menu.html.erb (8.0ms)
+Completed 200 OK in 582ms (Views: 532.2ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/businesses" for ::1 at 2017-12-06 00:44:57 -0600
+Processing by BusinessesController#index as HTML
+  [1m[36mBusiness Load (3.5ms)[0m  [1mSELECT  "businesses".* FROM "businesses" LIMIT 10 OFFSET 0[0m
+  [1m[35mAddress Load (1.3ms)[0m  SELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = $1 LIMIT 1  [["id", 9]]
+  [1m[36mBusinessType Load (4.9ms)[0m  [1mSELECT  "business_types".* FROM "business_types" WHERE "business_types"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mStatus Load (2.1ms)[0m  SELECT  "statuses".* FROM "statuses" WHERE "statuses"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36mAddress Load (0.6ms)[0m  [1mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "business_types".* FROM "business_types" WHERE "business_types"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mStatus Load (0.5ms)[0m  [1mSELECT  "statuses".* FROM "statuses" WHERE "statuses"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  Rendered businesses/index.html.erb within layouts/application (26.9ms)
+  Rendered includes/_menu.html.erb (1.0ms)
+Completed 200 OK in 183ms (Views: 168.1ms | ActiveRecord: 12.9ms)
+
+
+Started GET "/businesses" for ::1 at 2017-12-06 01:04:02 -0600
+Processing by BusinessesController#index as HTML
+  [1m[35mBusiness Load (26.9ms)[0m  SELECT  "businesses".* FROM "businesses" LIMIT 10 OFFSET 0
+  [1m[36mAddress Load (1.7ms)[0m  [1mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35mBusinessType Load (5.8ms)[0m  SELECT  "business_types".* FROM "business_types" WHERE "business_types"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mStatus Load (0.6ms)[0m  [1mSELECT  "statuses".* FROM "statuses" WHERE "statuses"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mAddress Load (0.7ms)[0m  SELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "business_types".* FROM "business_types" WHERE "business_types"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mStatus Load (0.7ms)[0m  SELECT  "statuses".* FROM "statuses" WHERE "statuses"."id" = $1 LIMIT 1  [["id", 9]]
+  Rendered businesses/index.html.erb within layouts/application (84.7ms)
+  Rendered includes/_menu.html.erb (1.7ms)
+Completed 200 OK in 1108ms (Views: 1048.1ms | ActiveRecord: 36.5ms)
+
+
+Started GET "/assets/bulma" for ::1 at 2017-12-06 01:04:04 -0600
+
+
+Started GET "/" for ::1 at 2017-12-06 23:02:38 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (3.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PanelAdminController#panelAdmin as HTML
+  Rendered panel_admin/panelAdmin.html.erb within layouts/application (4.0ms)
+  Rendered includes/_menu.html.erb (2.9ms)
+Completed 200 OK in 1252ms (Views: 1228.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bulma" for ::1 at 2017-12-06 23:02:41 -0600
