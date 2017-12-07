@@ -19,8 +19,9 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'puma'
+
 # Use postgresql as the database for Active Record
-gem 'pg', '~> 0.20.0'
+#gem 'pg', '~> 0.20.0'
 # PAra servir archivos estaticos
 gem "rails_12factor", "0.0.2"
 #css framework flexbox
@@ -52,6 +53,10 @@ gem 'will_paginate-bulma'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+group :production do
+  gem 'pg', '~> 0.20.0'
+end
+
 group :development do
   gem "better_errors"
   gem "binding_of_caller"
@@ -61,7 +66,7 @@ end
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-
+  gem 'sqlite3'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
